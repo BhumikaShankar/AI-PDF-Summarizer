@@ -4,13 +4,12 @@ import requests
 import tempfile
 import os
 
-# ---------------- PAGE CONFIG ----------------
+#  PAGE CONFIG 
 st.set_page_config(
     page_title="PDF AI Assistant",
     layout="wide"
 )
 
-# ---------------- FUNCTIONS ----------------
 def extract_text(pdf_path):
     """Extract text from PDF"""
     text = ""
@@ -83,8 +82,8 @@ Question:
     return ask_ollama(prompt)
 
 
-# ---------------- UI ----------------
-st.title("📄 PDF AI Assistant")
+#  UI 
+st.title(" PDF AI Assistant")
 st.write("Upload PDF → Summarize → Ask Questions")
 
 # Sidebar
@@ -112,9 +111,9 @@ if uploaded_file:
 
         col1, col2 = st.columns(2)
 
-        # ---------- SUMMARY ----------
+        #  SUMMARY 
         with col1:
-            st.subheader("📌 Generate Summary")
+            st.subheader(" Generate Summary")
 
             if st.button("Summarize PDF"):
                 with st.spinner("Generating summary..."):
@@ -122,9 +121,9 @@ if uploaded_file:
 
                 st.write(summary)
 
-        # ---------- Q&A ----------
+        #  Q&A 
         with col2:
-            st.subheader("❓ Ask Questions")
+            st.subheader(" Ask Questions")
 
             question = st.text_input("Enter your question")
 
@@ -137,7 +136,7 @@ if uploaded_file:
 
                     st.write(answer)
 
-        # ---------- TEXT PREVIEW ----------
+        #  TEXT PREVIEW 
         with st.expander("📄 Extracted Text Preview"):
             st.write(text[:3000])
 
